@@ -1,0 +1,67 @@
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><title>chart.html</title></head><body><p dir="ltr">&lt;!DOCTYPE html&gt;<br>
+&lt;html lang="en"&gt;<br>
+&lt;head&gt;<br>
+&nbsp; &lt;meta charset="UTF&#8209;8"&gt;<br>
+&nbsp; &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;<br>
+&nbsp; &lt;title&gt;Mini Qoutex&#8209;style Chart Panel&lt;/title&gt;<br>
+&nbsp; &lt;style&gt;<br>
+&nbsp;&nbsp;&nbsp; body { margin:0; background:#0f1520; color:#fff; font-family:sans-serif; }<br>
+&nbsp;&nbsp;&nbsp; #selector { padding:10px; background:#1a2230; text-align:center; }<br>
+&nbsp;&nbsp;&nbsp; #selector button { margin:0 5px; padding:5px 10px; color:#fff; background:#22ab94; border:none; cursor:pointer; }<br>
+&nbsp;&nbsp;&nbsp; #chart { height:calc(100vh - 50px); }<br>
+&nbsp; &lt;/style&gt;<br>
+&lt;/head&gt;<br>
+&lt;body&gt;<br>
+&nbsp; &lt;div id="selector"&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;button onclick="swap('BINANCE:BTCUSDT')"&gt;BTC/USD&lt;/button&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;button onclick="swap('BINANCE:ETHUSDT')"&gt;ETH/USD&lt;/button&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;button onclick="swap('BINANCE:XRPUSDT')"&gt;XRP/USD&lt;/button&gt;<br>
+&nbsp; &lt;/div&gt;<br>
+&nbsp; &lt;div id="chart"&gt;&lt;/div&gt;</p>
+<p dir="ltr">&nbsp; &lt;!-- TradingView Widget --&gt;<br>
+&nbsp; &lt;script src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async&gt;<br>
+&nbsp; {<br>
+&nbsp;&nbsp;&nbsp; "symbol": "BINANCE:BTCUSDT",<br>
+&nbsp;&nbsp;&nbsp; "interval": "1D",<br>
+&nbsp;&nbsp;&nbsp; "width": "100%",<br>
+&nbsp;&nbsp;&nbsp; "height": "100%",<br>
+&nbsp;&nbsp;&nbsp; "locale": "en",<br>
+&nbsp;&nbsp;&nbsp; "colorTheme": "dark",<br>
+&nbsp;&nbsp;&nbsp; "autosize": true,<br>
+&nbsp;&nbsp;&nbsp; "toolbar_bg": "#1a2230",<br>
+&nbsp;&nbsp;&nbsp; "hide_top_toolbar": false,<br>
+&nbsp;&nbsp;&nbsp; "withdateranges": true,<br>
+&nbsp;&nbsp;&nbsp; "allow_symbol_change": true,<br>
+&nbsp;&nbsp;&nbsp; "save_image": false,<br>
+&nbsp;&nbsp;&nbsp; "studies": [],<br>
+&nbsp;&nbsp;&nbsp; "hideideas": true<br>
+&nbsp; }<br>
+&nbsp; &lt;/script&gt;</p>
+<p dir="ltr">&nbsp; &lt;script&gt;<br>
+&nbsp;&nbsp;&nbsp; function swap(sym) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document.querySelector('#chart script').remove();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; const s = document.createElement('script');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; s.src = "https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; s.async = true;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; s.innerHTML = JSON.stringify({<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; symbol: sym,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; interval: "1D",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; width: "100%",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; height: "100%",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; locale: "en",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; colorTheme: "dark",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; autosize: true,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; toolbar_bg: "#1a2230",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; hide_top_toolbar: false,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; withdateranges: true,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; allow_symbol_change: true,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; save_image: false,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; studies: [],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; hideideas: true<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; });<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document.getElementById('chart').appendChild(s);<br>
+&nbsp;&nbsp;&nbsp; }<br>
+&nbsp; &lt;/script&gt;<br>
+&lt;/body&gt;<br>
+&lt;/html&gt;</p>
+</body></html>
